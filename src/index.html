@@ -6,13 +6,164 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor Cadastra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-
+  <header class="header">
+    <img class="header__logo" src="img/logo-m3.png" alt="Cadastra">
+    <svg class="header__cart" width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <rect width="17" height="20" fill="url(#pattern0_2_13)"/>
+      <defs>
+      <pattern id="pattern0_2_13" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_2_13" transform="scale(0.0588235 0.05)"/>
+      </pattern>
+      <image id="image0_2_13" width="17" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAUCAYAAABroNZJAAAAvElEQVQ4Ea2TAQ0CMQxFnwQkIAUJSMAJOAAJOAAH4ORwAA4gb1lJLnAH6faTpXdt/9+6/MF3LIAtcAauNfpv/i8sK+kAnIBLjfuat/4T7uzaAUEwKhq1WZE1cAc2E13mH4B9k3B372EO1u37gDt4cTG/31Mr7sn66MTO+kwseW9kBILTT0QDhWomFgOuGkXk00VE42TGCE4xnsaJRCYW43UROTaexIdZXmZmjOAU12YtPxK5NY4zOE4opuMLN/z2esJif9wAAAAASUVORK5CYII="/>
+      </defs>
+    </svg>
+  </header>
+  <section class="category">
+    <div class="category__head">
+      <h1 class="category__name">Blusas</h1>
+      <select name="ordernar" id="ordernar">
+        <option value="maisRecente">Mais recentes</option>
+        <option value="menorPreco">Menor preço</option>
+        <option value="maiorPreco">Maior preço</option>
+      </select>
+    </div>
+    <div class="category__mobile-nav">
+      <button id="filtrar">Filtrar</button>
+      <button id="ordernar">Ordernar</button>
+    </div>
+    <div class="category__container">
+      <aside class="filter">
+        <h2 class="filter__header">
+          Filtrar
+          <svg class="filter-close" width="18" height="18" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 18.852L17.5547 1.00001" stroke="black"/>
+            <line y1="-0.5" x2="25.2899" y2="-0.5" transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)" stroke="black"/>
+          </svg>
+        </h2>
+        <details class="filter__color" open>
+          <summary>Cores</summary>
+          <div class="wrapper">
+            <label>
+              <input type="checkbox" name="Amarelo" id="amarelo" data-category="color">
+              Amarelo
+            </label>
+            <label>
+              <input type="checkbox" name="Azul" id="azul" data-category="color">
+              Azul
+            </label>
+            <label>
+              <input type="checkbox" name="Branco" id="branco" data-category="color">
+              Branco
+            </label>
+            <label>
+              <input type="checkbox" name="Cinza" id="cinza" data-category="color">
+              Cinza
+            </label>
+            <label>
+              <input type="checkbox" name="Laranja" id="laranja" data-category="color">
+              Laranja
+            </label>
+            <label>
+              <input type="checkbox" name="Verde" id="verde" data-category="color">
+              Verde
+            </label>
+            <label>
+              <input type="checkbox" name="Vermelho" id="vermelho" data-category="color">
+              Vermelho
+            </label>
+            <label>
+              <input type="checkbox" name="Preto" id="preto" data-category="color">
+              Preto
+            </label>
+            <label>
+              <input type="checkbox" name="Rosa" id="rosa" data-category="color">
+              Rosa
+            </label>
+            <label>
+              <input type="checkbox" name="Vinho" id="vinho" data-category="color">
+              Vinho
+            </label>
+          </div>
+        </details>
+        <details class="filter__size" open>
+          <summary>Tamanhos</summary>
+          <div class="wrapper">
+            <label>
+              <input type="checkbox" name="P" id="P" data-category="size">
+              P
+            </label>
+            <label>
+              <input type="checkbox" name="M" id="M" data-category="size">
+              M
+            </label>
+            <label>
+              <input type="checkbox" name="G" id="G" data-category="size">
+              G
+            </label>
+            <label>
+              <input type="checkbox" name="GG" id="GG" data-category="size">
+              GG
+            </label>
+            <label>
+              <input type="checkbox" name="U" id="U" data-category="size">
+              U
+            </label>
+            <label>
+              <input type="checkbox" name="36" id="36" data-category="size">
+              36
+            </label>
+            <label>
+              <input type="checkbox" name="38" id="38" data-category="size">
+              38
+            </label>
+            <label>
+              <input type="checkbox" name="40" id="40" data-category="size">
+              40
+            </label>
+          </div>
+        </details>
+        <details class="filter__price" open>
+          <summary>Faixa de preço</summary>
+          <div class="wrapper">
+            <label>
+              <input type="checkbox" name="price-range-1" id="price-range-1" data-category="price">
+              de R$0 até R$50
+            </label>
+            <label>
+              <input type="checkbox" name="price-range-2" id="price-range-2" data-category="price">
+              de R$51 até R$150
+            </label>
+            <label>
+              <input type="checkbox" name="price-range-3" id="price-range-3" data-category="price">
+              de R$151 até R$300
+            </label>
+            <label>
+              <input type="checkbox" name="price-range-4" id="price-range-4" data-category="price">
+              de R$301 até R$500
+            </label>
+            <label>
+              <input type="checkbox" name="price-range-5" id="price-range-5" data-category="price">
+              a partir de R$500
+            </label>
+          </div>
+        </details>
+      </aside>
+      <ul class="shelf">
+      </ul>
+      <button class="load-more">Carregar Mais</button>
+    </div>
+  </section>
+  <footer class="footer">
+    <span>Cadastra: Implantação de e-commerce Vtex</span>
+  </footer>
 </body>
-<h1>Desafio Cadastra</h1>
 
 <script src="bundle.js"></script>
 

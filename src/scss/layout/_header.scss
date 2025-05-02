@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: $white;
+    border-bottom: #c7c7c7 2px solid;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include desktop {
+        padding: 1rem 7rem;
+    }
+    &__logo {
+        width: 10rem;
+    }
+    &__cart {
+        cursor: pointer;
+    }
+}

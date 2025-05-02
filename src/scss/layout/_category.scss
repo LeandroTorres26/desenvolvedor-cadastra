@@ -1,0 +1,236 @@
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    @include desktop {
+        padding: 1rem 7rem;
+    }
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        .category__name {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+        }
+        select {
+            background-color: $white;
+            border: 1px solid hsla(0, 0%, 0%, 0.5);
+            padding: .5rem;
+            &::after {
+                content: "";
+                display: block;
+                position: relative;
+                width: 10px;
+                height: 10px;
+                background-image: url("../../img/arrow.svg");
+            }
+        }
+    }
+    &__mobile-nav {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 1rem;
+        @include desktop {
+            display: none;
+        }
+        button {
+            background-color: transparent;
+            color: $gray;
+            font-size: 1.5rem;
+            font-weight: 400;
+            border: 1px solid;
+            margin: 0;
+            width: 100%;
+            padding: .5rem 0;
+        }
+    }
+    &__container {
+        display: grid;
+        width: 100%;
+        margin: 2rem 0;
+        gap: 1rem;
+        @include desktop {
+            grid-template-columns: 25% 1fr;
+        }
+        .filter {
+            position: fixed;
+            inset: 0;
+            background-color: $white;
+            overflow-y: auto;
+            @include desktop {
+                position: initial;
+                inset: unset;
+                grid-column: 1/2;
+            }
+            &__header {
+                color: $gray;padding: 1rem 0;
+                text-transform: uppercase;
+                font-size: 1.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+                border-bottom: 1px solid;
+                @include desktop {
+                    display: none;
+                }
+                .filter-close {
+                    cursor: pointer;
+                }
+            }
+            details {
+                padding: 0 1rem;
+                @include desktop {
+                    padding: 0;
+                }
+                &[open] {
+                    summary::after {
+                        transform: rotate(180deg);
+                    }
+                }
+                summary  {
+                    text-transform: uppercase;
+                    color: $gray;
+                    font-weight: 400;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem 0;
+                    cursor: pointer;
+                    list-style: none;
+                    &::-webkit-details-marker {
+                        display: none;
+                    }
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 18px;
+                        height: 13px;
+                        background: url('../../img/arrow.svg');
+                        background-size: cover;
+                        margin-left: .75em;
+                        transition: 0.2s;
+                    }
+                }
+                .wrapper {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: .5rem;
+                    label {
+                        font-size: .875rem;
+                        font-weight: 400;
+                        cursor: pointer;
+                        input {
+                            appearance: none;
+                        }
+                    }
+                }
+            }
+            &__color, &__price {
+                .wrapper {
+                    flex-direction: column;
+                }
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    input {
+                        position: relative;
+                        cursor: pointer;
+                        &::before {
+                            content: "";
+                            display: block;
+                            position: relative;
+                            border: 1px solid hsla(0, 0%, 0%, 0.5);
+                            width: 16px;
+                            height: 16px;
+                        }
+                        &:checked::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            inset: 3px;
+                            background-color: $orange;
+                        }
+                    }
+                }
+            }
+            &__size {
+                label {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    color: hsla(0, 0%, 0%, 0.5);
+                    border: 1px solid;
+                    &:has(input:checked){
+                        color: $black;
+                    }
+                    input {
+                        position: absolute;
+                    }
+                }
+            }
+        }
+        .shelf {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1rem;
+            @include desktop {
+                grid-column: 2/3;
+                grid-template-columns: repeat(3,1fr);
+            }
+            .product {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+                &__image {
+                    width: 100%;
+                }
+                &__name {
+                    text-transform: uppercase;
+                    font-size: .875rem;
+                    text-align: center;
+                }
+                &__price {
+                    font-weight: 700;
+                }
+                &__installments {
+                    color: $gray;
+                }
+                &__buy {
+                    width: 100%;
+                    background-color: $black;
+                    color: $white;
+                    border: none;
+                    padding: .5rem;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-family: $font;
+                }
+            }
+        }
+        .load-more {
+            background-color: $orange;
+            color: $white;
+            border: none;
+            margin: auto;
+            padding: .5rem 1.5rem;
+            font-size: .875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            @include desktop {
+                grid-column: 2/3;
+            }
+        }
+    }
+}
